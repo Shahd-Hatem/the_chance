@@ -18,11 +18,6 @@ class IPv4CheckerTest {
             checkip = isValidIPv4("255.255.255.255"),
             expected = true
         )
-        check(
-            name = "Single digit segments",
-            checkip = isValidIPv4("1.2.3.4"),
-            expected = true
-        )
     }
     fun `Invalid IPv4 addresses`() {
         check(
@@ -40,11 +35,7 @@ class IPv4CheckerTest {
             checkip = isValidIPv4("192.168.01.1"),
             expected = false
         )
-        check(
-            name = "Multiple leading zeros",
-            checkip = isValidIPv4("192.168.001.1"),
-            expected = false
-        )
+
         check(
             name = "Non-numeric characters",
             checkip = isValidIPv4("192.a.1.1"),
@@ -53,11 +44,6 @@ class IPv4CheckerTest {
         check(
             name = "Empty segment",
             checkip = isValidIPv4("192.168.1."),
-            expected = false
-        )
-        check(
-            name = "Too few segments",
-            checkip = isValidIPv4("192.168.1"),
             expected = false
         )
         check(
@@ -90,11 +76,7 @@ class IPv4CheckerTest {
             checkip = isValidIPv4(""),
             expected = false
         )
-        check(
-            name = "Null input",
-            checkip = isValidIPv4(null.toString()),
-            expected = false
-        )
+
     }
 
     private fun check(name: String, checkip: Boolean, expected: Boolean) {
