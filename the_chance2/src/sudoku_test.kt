@@ -1,6 +1,6 @@
 fun validandinvalid() {
     // Valid cases
-    check(name = "valid 9x9 Sudoku should return true",
+    check(name = "valid 9x9 Sudoku",
         checkBoard = isValidSudoku(arrayOf(
             arrayOf('5', '3', '-', '-', '7', '-', '-', '-', '-'),
             arrayOf('6', '-', '-', '1', '9', '5', '-', '-', '-'),
@@ -15,12 +15,12 @@ fun validandinvalid() {
         expected = true
     )
 
-    check(name = "valid empty 9x9 Sudoku should return true",
+    check(name = "valid empty 9x9 Sudoku ",
         checkBoard = isValidSudoku(Array(9) { Array(9) { '-' } }),
         expected = true
     )
 
-    check(name = "valid 4x4 Sudoku should return true",
+    check(name = "valid 4x4 Sudoku",
         checkBoard = isValidSudoku(arrayOf(
             arrayOf('1', '-', '-', '4'),
             arrayOf('-', '4', '1', '-'),
@@ -30,7 +30,7 @@ fun validandinvalid() {
         expected = true
     )
 
-    check(name = "valid 16x16 Sudoku should return true",
+    check(name = "valid 16x16 Sudoku ",
         checkBoard = isValidSudoku(arrayOf(
             arrayOf('1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F', 'G'),
             arrayOf('4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F', 'G', '1', '2', '3'),
@@ -53,7 +53,7 @@ fun validandinvalid() {
     )
 
     // Invalid cases
-    check(name = "invalid 9x9 Sudoku with duplicate in row should return false",
+    check(name = "invalid 9x9 Sudoku with duplicate in row ",
         checkBoard = isValidSudoku(arrayOf(
             arrayOf('5', '3', '-', '-', '7', '-', '-', '-', '-'),
             arrayOf('6', '-', '-', '1', '9', '5', '-', '-', '-'),
@@ -68,7 +68,7 @@ fun validandinvalid() {
         expected = false
     )
 
-    check(name = "invalid 9x9 Sudoku with duplicate in column should return false",
+    check(name = "invalid 9x9 Sudoku with duplicate in column ",
         checkBoard = isValidSudoku(arrayOf(
             arrayOf('5', '3', '-', '-', '7', '-', '-', '-', '-'),
             arrayOf('6', '-', '-', '1', '9', '5', '-', '-', '-'),
@@ -83,7 +83,7 @@ fun validandinvalid() {
         expected = false
     )
 
-    check(name = "invalid 9x9 Sudoku with duplicate in subgrid should return false",
+    check(name = "invalid 9x9 Sudoku with duplicate in subgrid ",
         checkBoard = isValidSudoku(arrayOf(
             arrayOf('5', '3', '-', '-', '7', '-', '-', '-', '-'),
             arrayOf('6', '-', '-', '1', '9', '5', '-', '-', '-'),
@@ -98,7 +98,7 @@ fun validandinvalid() {
         expected = false
     )
 
-    check(name = "invalid 4x4 Sudoku should return false",
+    check(name = "invalid 4x4 Sudoku",
         checkBoard = isValidSudoku(arrayOf(
             arrayOf('1', '-', '-', '4'),
             arrayOf('-', '4', '1', '-'),
@@ -108,7 +108,7 @@ fun validandinvalid() {
         expected = false
     )
 
-    check(name = "invalid 16x16 Sudoku should return false",
+    check(name = "invalid 16x16 Sudoku",
         checkBoard = isValidSudoku(arrayOf(
             arrayOf('1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F', 'G'),
             arrayOf('4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F', 'G', '1', '2', '3'),
@@ -130,7 +130,7 @@ fun validandinvalid() {
         expected = false
     )
 
-    check(name = "Sudoku with invalid characters should return false",
+    check(name = "Sudoku with invalid characters ",
         checkBoard = isValidSudoku(arrayOf(
             arrayOf('5', '3', '-', '-', '7', '-', '-', '-', '-'),
             arrayOf('6', '-', '-', '1', '9', '5', '-', '-', '-'),
@@ -145,7 +145,7 @@ fun validandinvalid() {
         expected = false
     )
 
-    check(name = "non-square Sudoku should return false",
+    check(name = "non-square Sudoku ",
         checkBoard = isValidSudoku(arrayOf(
             arrayOf('5', '3', '-'),
             arrayOf('6', '-', '-'),
@@ -161,7 +161,7 @@ fun validandinvalid() {
     )*/
 }
 
-// Helper function to run tests
+
 fun check(name: String, checkBoard: Boolean, expected: Boolean) {
 
 }
