@@ -24,7 +24,7 @@ fun validandinvalid() {
         checkBoard = isValidSudoku(arrayOf(
             arrayOf('1', '-', '-', '4'),
             arrayOf('-', '4', '1', '-'),
-            arrayOf('-', '1', '-', '3'),
+            arrayOf('-', '1', '-', '2'),
             arrayOf('2', '-', '3', '-')
         )),
         expected = true
@@ -53,20 +53,6 @@ fun validandinvalid() {
     )
 
     // Invalid cases
-    check(name = "invalid 9x9 Sudoku with duplicate in row ",
-        checkBoard = isValidSudoku(arrayOf(
-            arrayOf('5', '3', '-', '-', '7', '-', '-', '-', '-'),
-            arrayOf('6', '-', '-', '1', '9', '5', '-', '-', '-'),
-            arrayOf('-', '9', '8', '-', '-', '-', '-', '6', '-'),
-            arrayOf('8', '-', '-', '-', '6', '-', '-', '-', '3'),
-            arrayOf('4', '-', '-', '8', '-', '3', '-', '-', '1'),
-            arrayOf('7', '-', '-', '-', '2', '-', '-', '-', '6'),
-            arrayOf('-', '6', '-', '-', '-', '-', '2', '8', '-'),
-            arrayOf('-', '-', '-', '4', '1', '9', '-', '-', '5'),
-            arrayOf('5', '-', '-', '-', '8', '-', '-', '7', '9') // duplicate 5 in first column
-        )),
-        expected = false
-    )
 
     check(name = "invalid 9x9 Sudoku with duplicate in column ",
         checkBoard = isValidSudoku(arrayOf(
@@ -91,8 +77,8 @@ fun validandinvalid() {
             arrayOf('8', '-', '-', '-', '6', '-', '-', '-', '3'),
             arrayOf('4', '-', '-', '8', '-', '3', '-', '-', '1'),
             arrayOf('7', '-', '-', '-', '2', '-', '-', '-', '6'),
-            arrayOf('-', '6', '-', '-', '-', '-', '2', '8', '-'),
-            arrayOf('-', '-', '-', '4', '1', '9', '6', '-', '5'), // duplicate 6 in bottom-left subgrid
+            arrayOf('-', '-', '-', '-', '-', '-', '2', '8', '-'),
+            arrayOf('6', '6', '-', '4', '1', '9', '6', '-', '5'), // duplicate 6 in bottom-left subgrid row
             arrayOf('-', '-', '-', '-', '8', '-', '-', '7', '9')
         )),
         expected = false
@@ -101,9 +87,9 @@ fun validandinvalid() {
     check(name = "invalid 4x4 Sudoku",
         checkBoard = isValidSudoku(arrayOf(
             arrayOf('1', '-', '-', '4'),
-            arrayOf('-', '4', '1', '-'),
+            arrayOf('-', '4', '1', '3'),
             arrayOf('-', '1', '-', '3'),
-            arrayOf('2', '-', '3', '1') // duplicate 1 in last column
+            arrayOf('2', '-', '3', '1') // duplicate 3 in last column
         )),
         expected = false
     )
@@ -125,7 +111,7 @@ fun validandinvalid() {
             arrayOf('D', 'E', 'F', 'G', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C'),
             arrayOf('E', 'F', 'G', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D'),
             arrayOf('F', 'G', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E'),
-            arrayOf('G', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', '1') // duplicate 1
+            arrayOf('G', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', '1') // duplicate 1 in row and colum
         )),
         expected = false
     )
@@ -154,11 +140,24 @@ fun validandinvalid() {
         )),
         expected = false
     )
-
-   /* check(name = "Sudoku with invalid size (not 4, 9, 16) should return false",
-        checkBoard = isValidSudoku(Array(5) { Array(5) { '-' } }),
+    check(name = "empty board ",
+        checkBoard = isValidSudoku(arrayOf(
+            arrayOf<Char>(),
+            arrayOf<Char>(),
+            arrayOf<Char>()
+        )),
         expected = false
-    )*/
+    )
+    check(name = "invalid 4x4 Sudoku",
+        checkBoard = isValidSudoku(arrayOf(
+            arrayOf('1', '-', '-', '4'),
+            arrayOf('-', '4', '1', '-'),
+            arrayOf('-', '1', '-', '3'),
+            arrayOf('2', '-', '3', '-')
+        )),
+        expected = false
+    )//duplicate in bottom left subgrid
+
 }
 
 

@@ -2,13 +2,19 @@ fun isValidSudoku(board: Array<Array<Char>>): Boolean {
     val size = board.size
     if (size == 0 || board.any { it.size != size }) return false
 
+
+    /*val sqrt = Math.sqrt(size.toDouble()).toInt()
+    if (sqrt * sqrt != size) return false*/ //هنا دول هيبقي ليهم لازمة لو احنا مش محددين ان الكود مخصص بس يكون 4x4 or 9x9 or 16x16 at allowedchars
+
+
+
     // Determine allowed characters based on board size
     val allowedChars = when (size) {
         4 -> ('1'..'4').toSet() + '-'
         9 -> ('1'..'9').toSet() + '-'
         16 -> ('1'..'9').toSet() + ('A'..'G').toSet() + '-'
         else -> return false
-    }
+    }// it's explicitly rejecting any board sizes other than 4×4, 9×9, or 16×16.
 
     // Check all cells contain allowed characters
     for (row in board) {
@@ -61,11 +67,10 @@ private fun isValidUnit(unit: List<Char>): Boolean {
 }
 
 fun main() {
-    val valid16x16 = arrayOf(
-        arrayOf('5', '3', '-'),
-        arrayOf('6', '-', '-'),
-        arrayOf('-', '9', '8'),
-        arrayOf('8', '-', '-')
-    )
-    println(isValidSudoku(valid16x16)) // Will now correctly print "true"
+    val emptyBoard = arrayOf(arrayOf<Char>(),
+        arrayOf<Char>(),
+        arrayOf<Char>(),
+        arrayOf<Char>())  // invalid board: size = 0
+    println(isValidSudoku(emptyBoard))
+
 }

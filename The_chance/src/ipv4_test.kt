@@ -26,6 +26,11 @@ class IPv4CheckerTest {
             expected = false
         )
         check(
+            name = "two dots",
+            checkip = isValidIPv4("256.256..256"),
+            expected = false
+        )
+        check(
             name = "Negative numbers",
             checkip = isValidIPv4("192.168.-1.1"),
             expected = false
